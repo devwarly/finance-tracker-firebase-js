@@ -76,17 +76,7 @@ const balanceObservation = document.getElementById('balanceObservation');
 const balanceObservationBox = document.getElementById('balanceObservationBox');
 const toastContainer = document.getElementById('toastContainer');
 
-// ------------------------------------
-// FUNÇÕES DE UTILIDADE E UI
-// ------------------------------------
 
-// ... (formatCurrency, toDateObject, animateValue, showToast, applyTheme, initializeTheme, switchAuthMode permanecem inalteradas) ...
-
-/**
- * Converte um número para o formato de moeda Real (R$).
- * @param {number} value
- * @returns {string}
- */
 const formatCurrency = (value) => {
     // Garante que o valor é um número
     const numValue = parseFloat(value) || 0;
@@ -96,25 +86,15 @@ const formatCurrency = (value) => {
     }).format(numValue);
 };
 
-/**
- * Converte um timestamp do Firestore ou um objeto Date para Date.
- * @param {object} date
- * @returns {Date}
- */
+
 const toDateObject = (date) => {
     if (date instanceof Date) return date;
     if (date && typeof date.toDate === 'function') return date.toDate();
-    // Tenta converter de string/timestamp brutos
+ 
     return new Date(date);
 };
 
-/**
- * Função para animar a contagem de um valor numérico em um elemento.
- * @param {HTMLElement} element - O elemento DOM.
- * @param {number} start - O valor inicial (sempre 0).
- * @param {number} end - O valor final (real).
- * @param {number} duration - Duração em ms.
- */
+
 function animateValue(element, start, end, duration = 1000) {
     let startTimestamp = null;
     const isNegative = end < 0;
@@ -127,7 +107,6 @@ function animateValue(element, start, end, duration = 1000) {
 
         let displayValue = formatCurrency(isNegative ? -currentValue : currentValue);
 
-        // Atualiza o texto. Se o valor real for zero, garante a cor e o zero.
         if (Math.abs(end) === 0) {
               element.textContent = formatCurrency(0);
         } else {
@@ -138,19 +117,14 @@ function animateValue(element, start, end, duration = 1000) {
         if (progress < 1) {
             window.requestAnimationFrame(step);
         } else {
-            // Garante o valor final exato formatado
+       
             element.textContent = formatCurrency(end);
         }
     };
     window.requestAnimationFrame(step);
 }
 
-/**
- * Exibe uma mensagem de feedback usando o card flutuante (Toast).
- * @param {string} title - Título principal da mensagem (Ex: Sucesso, Erro, Transação).
- * @param {string} description - Descrição detalhada (Ex: Transação adicionada).
- * @param {'success'|'error'} type - Tipo de mensagem.
- */
+
 function showToast(title, description, type) {
     const isSuccess = type === 'success';
     const color = isSuccess ? '#2b9875' : '#dc2626'; // Verde ou Vermelho
@@ -244,16 +218,13 @@ function initializeTheme() {
     toggleTheme.checked = isDark;
 }
 
-/**
- * Alterna a visualização entre as seções de Login e Registro.
- * @param {'login'|'signup'} mode
- */
+
 function switchAuthMode(mode) {
     if (mode === 'login') {
         loginSection.classList.remove('hidden');
         signupSection.classList.add('hidden');
 
-        // Estiliza os botões como "abas"
+  
         showLoginButton.classList.add('text-indigo-600', 'border-indigo-600');
         showLoginButton.classList.remove('text-gray-500', 'border-gray-200');
         showSignupButton.classList.add('text-gray-500', 'border-gray-200');
@@ -276,14 +247,6 @@ function switchAuthMode(mode) {
 }
 
 
-// ------------------------------------
-// FUNÇÕES DE AUTENTICAÇÃO
-// ------------------------------------
-
-/**
- * Obtém o nome de usuário do Firestore.
- * @param {string} userId
- */
 async function getUserName(userId) {
     try {
         const userDocRef = doc(db, `artifacts/${appId}/users/${userId}`);
@@ -298,10 +261,7 @@ async function getUserName(userId) {
     }
 }
 
-/**
- * Lida com o registro de um novo usuário.
- * @param {Event} e
- */
+
 async function handleSignUp(e) {
     e.preventDefault();
     const userName = document.getElementById('signupUserName').value.trim(); // NOVO
@@ -309,7 +269,7 @@ async function handleSignUp(e) {
     const password = document.getElementById('signupPassword').value;
 
     try {
-        // 1. Verifica se o nome de usuário já existe
+     
         const usersRef = collection(db, `artifacts/${appId}/users`);
         const q = query(usersRef, where("userName", "==", userName));
         const snapshot = await getDocs(q);
@@ -319,7 +279,7 @@ async function handleSignUp(e) {
             return;
         }
 
-        // 2. Cria o usuário com e-mail e senha no Firebase Auth
+      
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
         const user = userCredential.user;
 
@@ -345,10 +305,7 @@ async function handleSignUp(e) {
     }
 }
 
-/**
- * Lida com o login do usuário.
- * @param {Event} e
- */
+
 async function handleSignIn(e) {
     e.preventDefault();
     const identifier = loginIdentifier.value.trim(); // Pode ser E-mail ou Nome de Usuário
@@ -942,11 +899,6 @@ function downloadReport() {
     showToast("Sucesso", "Relatório PDF gerado!", 'success');
 }
 
-
-// ------------------------------------
-// INICIALIZAÇÃO E LISTENERS
-// ------------------------------------
-
 window.onload = function() {
     initializeTheme();
     document.getElementById('date').valueAsDate = new Date();
@@ -957,12 +909,12 @@ window.onload = function() {
         applyTheme(e.target.checked);
     });
 
-    // NOVO: Listener para o botão do menu de usuário (Dropdown)
+
     userMenuButton.addEventListener('click', () => {
         userMenuDropdown.classList.toggle('hidden');
     });
 
-    // Fechar dropdown ao clicar fora
+
     document.addEventListener('click', (e) => {
         if (!userMenuButton.contains(e.target) && !userMenuDropdown.contains(e.target)) {
             userMenuDropdown.classList.add('hidden');
